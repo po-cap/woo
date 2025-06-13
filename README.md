@@ -20,3 +20,6 @@ samples, guidance on mobile development, and a full API reference.
 
 1) 建立項目
     flutter create --org woo.supojen.com woo
+
+2) 安裝需要的 pub package
+    flutter pub add get
