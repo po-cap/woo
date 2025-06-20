@@ -28,7 +28,7 @@ class Translation extends Translations {
   // 语言代码对应的翻译文本
   @override
   Map<String, Map<String, String>> get keys => {
-        'en': localeEn,
         'zh': localeZh,
+        'en': localeEn,
       };
 }

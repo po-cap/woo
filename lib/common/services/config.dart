@@ -79,6 +79,28 @@ class ConfigService extends GetxService {
         AdaptiveTheme.of(Get.context!).setSystem();
         break;
     }
+
+    // 设置系统样式
+    AppTheme.setSystemStyle();
+  }
+
+
+  // 是否首次打开
+  bool get isAlreadyOpen => Storage().getBool(Constants.storageAlreadyOpen);
+
+  // 标记已打开app
+  void setAlreadyOpen() {
+    Storage().setBool(Constants.storageAlreadyOpen, true);
+  }
+
+    // 切换主题
+  void switchThemeMode() {
+    // 品乓方式切换
+    themeMode = themeMode == AdaptiveThemeMode.light
+        ? AdaptiveThemeMode.dark
+        : AdaptiveThemeMode.light;
+
+    setThemeMode(themeMode.name);
   }
 
 }

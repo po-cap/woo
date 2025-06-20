@@ -18,3 +18,9 @@ generate-docs:
 
 watch-docs:
 	dhttpd --path doc/api
+
+create-splash:
+	dart run flutter_native_splash:create
+
+remove-splash:
+	dart run flutter_native_splash:remove

@@ -11,9 +11,14 @@ class Global {
     // 工具类
     await Storage().init();
 
+    // 加載動畫
+    Loading();
+
     // 初始化服务
     Get.put<ConfigService>(ConfigService());
     Get.put<WPHttpService>(WPHttpService());
+    Get.put<UserService>(UserService());
+    Get.put<CartService>(CartService());
 
     // 初始化配置
     await ConfigService.to.init();

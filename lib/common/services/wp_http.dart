@@ -104,9 +104,9 @@ class RequestInterceptors extends Interceptor {
     // super.onRequest(options, handler);
 
     // // http header 头加入 Authorization
-    // if (UserService.to.hasToken) {
-    //   options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
-    // }
+    if (UserService.to.hasToken) {
+      options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
+    }
 
     return handler.next(options);
     // 如果你想完成请求并返回一些自定义数据，你可以resolve一个Response对象 `handler.resolve(response)`。
@@ -133,12 +133,32 @@ class RequestInterceptors extends Interceptor {
     }
   }
 
-  @override
+@override
   Future<void> onError(
       DioException err, ErrorInterceptorHandler handler) async {
     final exception = HttpException(err.message ?? "error message");
     switch (err.type) {
       case DioExceptionType.badResponse: // 服务端自定义错误体处理
+        {
+          final response = err.response;
+          final errorMessage = ErrorMessageModel.fromJson(response?.data);
+          switch (errorMessage.statusCode) {
+            // 401 未登录
+            case 401:
+              // 注销 并跳转到登录页面
+              _errorNoAuthLogout();
+              break;
+            case 404:
+              break;
+            case 500:
+              break;
+            case 502:
+              break;
+            default:
+              break;
+          }
+          Loading.error(errorMessage.message);
+        }
         break;
       case DioExceptionType.unknown:
         break;
@@ -154,5 +174,11 @@ class RequestInterceptors extends Interceptor {
     );
     handler.next(errNext);
   }
+
 }
 
+  // 退出并重新登录
+  Future<void> _errorNoAuthLogout() async {
+    await UserService.to.logout();
+    Get.toNamed(RouteNames.systemLogin);
+  }

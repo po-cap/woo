@@ -31,6 +31,36 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <!--
+    Internet permissions do not affect the `permission_handler` plugin, but are required if your app
+    needs access to
+    the internet.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- https://pub.dev/packages/permission_handler -->
+
+    <!-- Permissions options for the `storage` group -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+
+    <!-- READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, or READ_MEDIA_AUDIO -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
+    <!-- If your application needs access to Android's file system, it is possible to request the
+    MANAGE_EXTERNAL_STORAGE permission -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!-- Permissions options for the `camera` group -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+
+    <!-- Permissions options for the `microphone` or `speech` group -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.

@@ -1,6 +1,29 @@
 
 class RouteNames {
+  static const cartCartIndex = '/cart_cart_index';
+  static const cartBuyDone = '/cart_buy_done';
+  static const goodsCategory = '/goods_category';
+  static const goodsHome = '/goods_home';
+  static const goodsHomeWidgets = '/goods_home_widgets';
+  static const goodsProductDetails = '/goods_product_details';
+  static const goodsProductDetailsWidgets = '/goods_product_details_widgets';
+  static const goodsProductList = '/goods_product_list';
+  static const msgMsg = '/msg_msg';
+  static const myLanguage = '/my_language';
+  static const myMyAddress = '/my_my_address';
+  static const myMyIndex = '/my_my_index';
+  static const myOrderDetails = '/my_order_details';
+  static const myOrderList = '/my_order_list';
+  static const myProfileEdit = '/my_profile_edit';
+  static const searchFilter = '/search_filter';
+  static const searchFilterWidgets = '/search_filter_widgets';
+  static const searchIndex = '/search_index';
+  static const stylesCheckbox = '/styles_checkbox';
+  static const stylesStylesIndex = '/styles_styles_index';
   static const systemLogin = '/system_login';
   static const systemMain = '/system_main';
+  static const systemRegister = '/system_register';
+  static const systemRegisterPin = '/system_register_pin';
   static const systemSplash = '/system_splash';
+  static const systemWelcome = '/system_welcome';
 }
